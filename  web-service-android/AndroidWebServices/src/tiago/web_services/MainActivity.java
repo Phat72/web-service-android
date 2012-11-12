@@ -41,7 +41,7 @@ public class MainActivity extends Activity implements OnClickListener
 		btnGoToWsVS.setOnClickListener(this);
 	}
 
-	@Override
+	
 	public void onClick(View v)
 	{
 		if (v == btnGoToWsInternet)

@@ -21,7 +21,8 @@ import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.AndroidHttpTransport;
+import org.ksoap2.transport.HttpTransportSE;
+
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -90,12 +91,12 @@ public class WebServiceInternet extends Activity implements OnClickListener
 				SoapEnvelope.VER11);
 		
 		//If the server is written in .net this flag MUST BE true. Otherwise the application
-		//can´t be the right behaviour. For other servers(PHP,java,etc) this value MUST BE false.
+		//canï¿½t be the right behaviour. For other servers(PHP,java,etc) this value MUST BE false.
 		soapEnvelope.dotNet = true;
 		
 		soapEnvelope.setOutputSoapObject(Request);
 
-		AndroidHttpTransport aht = new AndroidHttpTransport(URL);
+		HttpTransportSE aht = new HttpTransportSE(URL,10000);
 
 		try
 		{
@@ -120,7 +121,6 @@ public class WebServiceInternet extends Activity implements OnClickListener
 	/* (non-Javadoc)
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)
 	 */
-	@Override
 	public void onClick(View v)
 	{
 		//If the component clicked is the buttonConvert
